@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Pomodoro</string>
+    <string name="notification_channel_id">Pomodoro Channel</string>
+    <string name="notification_channel_id_no_sound">Pomodoro Channel No Sound</string>
+    <string name="notification_description_channel">Pomodoro State</string>
+    <string name="notification_title">Pomodoro Finished</string>
+
+    <string name="menu_item_new">New</string>
+    <string name="menu_item_history">History</string>
+    <string name="button_start">Start</string>
+    <string name="button_stop">Stop</string>
+    <string name="button_ok">Ok</string>
+    <string name="title_dialog_pomodoro_finished">Pomodoro Finished</string>
+
+</resources>

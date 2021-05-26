@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF4351</color>
+    <color name="colorBackground">#141C27</color>
+    <color name="colorBackgroundLight">#1C2737</color>
+    <color name="black">#FF000000</color>
+    <color name="itemMenuSelected">@color/colorPrimary</color>
+    <color name="itemMenuDefault">#707070</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="whiteLight">#AEAEAE</color>
+</resources>

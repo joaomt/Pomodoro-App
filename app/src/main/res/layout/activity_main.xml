@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="pagerAdapterMain"
+            type="androidx.fragment.app.FragmentPagerAdapter"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.MainActivity"
+        android:background="@color/colorBackground">
+
+        <TextView
+            android:id="@+id/txt_pomodoro"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/app_name"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_view_pager_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/customTabLayout"
+            android:layout_marginTop="20dp"
+            app:tabGravity="center"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/txt_pomodoro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager_main"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_view_pager_main"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

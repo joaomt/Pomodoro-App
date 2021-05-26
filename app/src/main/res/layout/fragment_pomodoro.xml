@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".features.pomodoro.PomodoroFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.superplayer.pomodoro.features.pomodoro.PomodoroViewModel" />
+
+        <variable
+            name="viewState"
+            type="com.superplayer.pomodoro.features.pomodoro.viewState.PomodoroViewState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/colorBackground">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_count_down_pomodoro"
+            app:layout_constraintEnd_toEndOf="@+id/progress_count_down_pomodoro"
+            app:layout_constraintStart_toStartOf="@+id/progress_count_down_pomodoro"
+            app:layout_constraintTop_toTopOf="@+id/progress_count_down_pomodoro"
+            app:lottie_fileName="animations/anim_pulse.json"
+            app:lottie_loop="true"
+            app:playBinding="@{viewState.animationProgressPomodoro.playAnimation}"
+            app:visibilityBinding="@{viewState.animationProgressPomodoro.visibility}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_count_down_pomodoro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@{viewModel.timeProgress}"
+            android:textSize="72sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_count_down_pomodoro"
+            app:layout_constraintEnd_toEndOf="@+id/progress_count_down_pomodoro"
+            app:layout_constraintStart_toStartOf="@+id/progress_count_down_pomodoro"
+            app:layout_constraintTop_toTopOf="@+id/progress_count_down_pomodoro"
+            app:textColorBinding="@{viewState.progressPomodoro.color}"
+            tools:text="25:00"
+            tools:textColor="@color/white" />
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/progress_count_down_pomodoro"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="30dp"
+            app:cpb_background_progressbar_color="@color/colorBackgroundLight"
+            app:cpb_background_progressbar_width="20dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progress_max="1500"
+            app:cpb_progressbar_color="@color/colorPrimary"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_round_border="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressBinding="@{viewModel.timeProgressValue}"
+            tools:cpb_progress="500" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/shape_corner_round_10dp"
+            android:fontFamily="@font/nunito_bold"
+            android:letterSpacing="0.1"
+            android:onClick="@{view -> viewModel.handleStartStopPomodoro()}"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_count_down_pomodoro"
+            app:textBinding="@{viewState.actionPomodoro.title}"
+            tools:text="@string/button_start" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

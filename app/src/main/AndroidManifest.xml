@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.superplayer.pomodoro">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".PomodoroApp"
+        android:label="@string/app_name"
+        android:icon="@mipmap/launcher_logo"
+        android:allowBackup="false"
+        android:roundIcon="@mipmap/launcher_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Pomodoro">
+
+        <receiver
+            android:name=".common.sync.BroadcastPomodoro"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".main.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
