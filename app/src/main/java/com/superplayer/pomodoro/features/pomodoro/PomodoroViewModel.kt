@@ -58,17 +58,14 @@ class PomodoroViewModel @Inject constructor(
     }
 
     private fun checkStatePomodoro() {
-        when(pomodoro.state) {
-            PomodoroState.Running -> {
-                resumePomodoro()
-            }
-        }
+        if (pomodoro.state is PomodoroState.Running) resumePomodoro()
     }
 
     fun handleStartStopPomodoro() {
         when(pomodoro.state) {
             PomodoroState.Default -> startPomodoro()
             PomodoroState.Running -> stopPomodoro()
+            else -> _pomodoroViewState.value = _pomodoroViewState.value?.default()
         }
     }
 
@@ -97,6 +94,7 @@ class PomodoroViewModel @Inject constructor(
                 call()
                 value= BroadcastPomodoro.ACTION_RECEIVER_STATE
             }
+            else -> {}
         }
     }
 
